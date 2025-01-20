@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="OrderApiClientPactTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-01-19T21:00:38" hostname="Hariss-MBP" time="0.672">
-  <properties/>
-  <testcase name="getEmptyListOfOrders(MockServer)" classname="OrderApiClientPactTest" time="0.527"/>
-  <testcase name="getListOfOrders(MockServer)" classname="OrderApiClientPactTest" time="0.144"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[[Test worker] INFO au.com.dius.pact.consumer.junit5.PactConsumerTestExt - Writing pacts out to default directory
-]]></system-err>
-</testsuite>
