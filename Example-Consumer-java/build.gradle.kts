@@ -2,11 +2,17 @@ import io.ktor.http.*
 
 plugins {
     id("java")
-    id( "au.com.dius.pact") version ("4.3.6")
+    id( "au.com.dius.pact") version ("4.3.10")
 }
 
 group = "org.example.consumer"
 version = "1.0-SNAPSHOT"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 repositories {
     mavenCentral()

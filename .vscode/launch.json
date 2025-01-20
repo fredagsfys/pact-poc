@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceRoot}/Example-Consumer-go/cmd/example-consumer-client/",
+            "program": "${workspaceRoot}/Example-Provider-go/cmd/example-provider-api/",
             "args": [
                 "--config=configuration.yaml"
             ],

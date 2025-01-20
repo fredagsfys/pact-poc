@@ -35,3 +35,4 @@ tasks.withType<Test> {
 	systemProperty("pact.verifier.publishResults", "true")
 	systemProperty("pact_do_not_track", "true")
 }
+

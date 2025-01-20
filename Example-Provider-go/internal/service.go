@@ -13,7 +13,7 @@ import (
 type Config struct {
 	Logger   *logger.Config `yaml:"logger"`
 	Server   *server.Config `yaml:"server"`
-	OrderApi *order.Config  `yaml:"test_api"`
+	OrderApi *order.Config  `yaml:"order_api"`
 }
 
 type Service struct {

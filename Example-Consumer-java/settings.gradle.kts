@@ -1,2 +1,1 @@
 rootProject.name = "Example-Consumer"
-
