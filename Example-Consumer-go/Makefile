@@ -1,6 +1,6 @@
 .PHONY: run
 run:
-	@go run ./cmd/example-consumer-client/main.go --config=""
+	@go run ./cmd/example-consumer-client/main.go --config="./cmd/example-consumer-client/configuration.yaml"
 
 .PHONY: build
 build:

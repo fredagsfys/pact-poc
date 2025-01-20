@@ -1,25 +1,46 @@
-package internal
+package service
 
 import (
 	"context"
 	"fmt"
 
+	"consumer.example.com/m/internal/logger"
+	"consumer.example.com/m/internal/server"
+	"consumer.example.com/m/pkg/api/order"
 	"golang.org/x/sync/errgroup"
 )
 
+type Config struct {
+	Logger   *logger.Config `yaml:"logger"`
+	Server   *server.Config `yaml:"server"`
+	OrderApi *order.Config  `yaml:"test_api"`
+}
+
 type Service struct {
+	logger *logger.Logger
 	server *server.Server
 }
 
-func New(ctx context.Context) (*Service, error) {
-	orderService, err := order.NewService()
+func New(ctx context.Context, config *Config) (*Service, error) {
+	logger, err := logger.New(config.Logger)
 	if err != nil {
-		return nil, fmt.Errorf("failed to create monster api: %w", err)
+		return nil, fmt.Errorf("failed to create logger: %w", err)
+	}
+
+	server, err := server.New(config.Server, logger)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create http server: %w", err)
+	}
+
+	orderService, err := order.NewService(config.OrderApi, logger)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create order api: %w", err)
 	}
 
 	server.RegisterService(orderService)
 
 	return &Service{
+		logger: logger,
 		server: server,
 	}, nil
 }
